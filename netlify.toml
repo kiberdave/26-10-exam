@@ -1,0 +1,11 @@
+# Netlify: build settings + SPA fallback.
+# Without the redirect, refreshing /products/5 on the live site returns Netlify's 404,
+# because there is no real products/5.html file — React Router lives only in index.html.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
